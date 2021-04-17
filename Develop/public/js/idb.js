@@ -7,14 +7,14 @@ request.onupgradeneeded = function(cvent) {
   // save reference to the DB
   const db = event.target.result;
   // create Object Store(table) "moble-bank"
-  db.createEbjectStore('new_bank', { autoIncrement: true});
+  db.createObjectStore('new_bank', { autoIncrement: true});
 };
 
 request.onsuccess = function(event) {
   db = event.target.result;
   if (navigator.onLine) {
    
-    uploadbank();
+    uploadBank();
   }
 };
 
@@ -48,7 +48,7 @@ function uploadBank() {
   getAll.onsuccess = function() {
     // if there was data in indexedDb's store, let's send it to the api server
     if (getAll.result.length > 0) {
-      fetch('/api/transactions', {
+      fetch('/api/transaction/bulk', {
         method: 'POST',
         body: JSON.stringify(getAll.result),
         headers: {
@@ -75,4 +75,4 @@ function uploadBank() {
   };
 }
 // listen for app coming back online
-window.assEventListener('online', uploadBank);
+window.addEventListener('online', uploadBank);
