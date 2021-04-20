@@ -12,5 +12,5 @@ An app to track withdrawals and deposits with or without a data/internet connect
 
 * Github repo: `https://github.com/bspur11/moble-bank.git`
 
-* Heroku: `https://budget-buster.herokuapp.com/`
+* Heroku: `https://bud-bank.herokuapp.com/`
 
